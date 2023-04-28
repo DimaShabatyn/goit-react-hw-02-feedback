@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Layout } from './Layout/Layout';
-import { GlobalStyle } from './GlobalStyle';
 import { Section } from './Section/Section';
 import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Statistics } from './Statistics/Statistics';
@@ -12,8 +11,8 @@ export class App extends Component {
     bad: 0,
   };
 
-  onLeaveFeedback = e => {
-    this.setState({ [e]: this.state[e] + 1 });
+  onLeaveFeedback = option => {
+    this.setState(prevState => ({ [option]: prevState[option] + 1 }));
   };
   countTotalFeedback = ({ good, neutral, bad }) => good + neutral + bad;
 
@@ -42,7 +41,6 @@ export class App extends Component {
             )}
           />
         </Section>
-        <GlobalStyle />
       </Layout>
     );
   }

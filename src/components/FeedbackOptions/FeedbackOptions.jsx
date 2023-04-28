@@ -1,10 +1,16 @@
-import React from 'react'
+import React from 'react';
 import { BtnList, StyledButton } from './FeedbackOptions.styled';
 
-export const FeedbackOptions = (props) => {
-    const { options, leaveFeedback } = props;
+export const FeedbackOptions = ({ options, leaveFeedback }) => {
   return (
-    <BtnList> {options.map(option => <li key={option}><StyledButton onClick={() => leaveFeedback(option)}>{option}</StyledButton></li>)}
+    <BtnList>
+      {options.map(option => (
+        <li key={option}>
+          <StyledButton onClick={() => leaveFeedback(option)}>
+            {option}
+          </StyledButton>
+        </li>
+      ))}
     </BtnList>
-  )
-}
+  );
+};
